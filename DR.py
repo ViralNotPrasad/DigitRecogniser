@@ -1,13 +1,28 @@
 import numpy as np
+
 def forward(X,W,B):
-Y=X.dot(np.transpose(W)+B
-O=sigmoid(Y)
+	Y=X.dot(np.W)+B
+	O=sigmoid(Y)
 	return O
-def backward_pass():
+
+def forward_pass(X,network):
+	for i in range (len(network.layers))
+	W=network.weights[0]
+	B=network.biases[0]
+	O = forward(X,W,B)
+	for i in range (1,len(network.layers)-1): #Do While Types Hmm
+	W=network.weights[i]
+	B=network.biases[i]
+	O = forward(O,W,B)
+	return O
+
+def backward_pass(O,t):
 	pass
+
 #Activation Function
 def ReLu(z):
 	return np.maximum(z,0,z)
+
 def sigmoid(z):
 		return 1/np.exp(-1*z)+1
 
@@ -28,9 +43,8 @@ class Network:
 			self.weights.append(layer_weight)
 			self.baises.append(layer_bias)
 
-#			my_net = Network([,])
+#			my_net = Network([3,1])
 
-
-a=np.array([1,2,3,4])
-b=np.arrayy([1,1,1,1],[1,1,1,1],[1,1,1,1])
-a.dot(np.transpose(b)+baises
+#a=np.array([1,2,3,4])
+#b=np.arrayy([1,1,1,1],[1,1,1,1],[1,1,1,1])
+#a.dot(np.transpose(b)+baises
