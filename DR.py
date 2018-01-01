@@ -1,6 +1,8 @@
 import numpy as np
-def forward_pass():
-	pass
+def forward(X,W,B):
+Y=X.dot(np.transpose(W)+B
+O=sigmoid(Y)
+	return O
 def backward_pass():
 	pass
 #Activation Function
@@ -28,3 +30,7 @@ class Network:
 
 #			my_net = Network([,])
 
+
+a=np.array([1,2,3,4])
+b=np.arrayy([1,1,1,1],[1,1,1,1],[1,1,1,1])
+a.dot(np.transpose(b)+baises
