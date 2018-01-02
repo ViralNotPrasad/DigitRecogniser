@@ -1,20 +1,24 @@
 import numpy as np
 
-def forward(X,W,B):
+
+def weighted_sum(X,W,B):
 	Y=X.dot(np.W)+B
-	O=sigmoid(Y)
-	return O
+	return Y
 
 def forward_pass(X,network):
 	W=network.weights[0]
 	B=network.biases[0]
-	O = forward(X,W,B)
 	Inputs.append[X]
+	Y = weighted_sum(X,W,B)
+	Weighted_sums.append(Y)
+	O=sigmoid(Y)
 	for i in range (1,len(network.weights)-1): #Do While Types Hmm
 	W=network.weights[i]
 	B=network.biases[i]
 	Inputs.append[O]
-	O = forward(O,W,B)
+	Y = weighted_sum(O,W,B)
+	Weighted_sums.append(Y)
+	O=sigmoid(Y)
 	O=np.argmax(O,axis=1)+1
 	return O
 
@@ -48,6 +52,7 @@ class Network:
 			self.weights.append(layer_weight)
 			self.baises.append(layer_bias)
 			Inputs=[]
+			Weighted_sums=[]
 
 #			my_net = Network([3,1])
 
