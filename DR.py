@@ -6,15 +6,19 @@ def forward(X,W,B):
 	return O
 
 def forward_pass(X,network):
-	for i in range (len(network.layers))
 	W=network.weights[0]
 	B=network.biases[0]
 	O = forward(X,W,B)
-	for i in range (1,len(network.layers)-1): #Do While Types Hmm
+	Inputs.append[X]
+	for i in range (1,len(network.weights)-1): #Do While Types Hmm
 	W=network.weights[i]
 	B=network.biases[i]
+	Inputs.append[O]
 	O = forward(O,W,B)
 	return O
+
+def calc_cost(O,t):
+	#AvgError
 
 def backward_pass(O,t):
 	pass
@@ -42,9 +46,11 @@ class Network:
 			layer_bias = np.random.random((layers[i])) #28 random values [0.0,1.0)
 			self.weights.append(layer_weight)
 			self.baises.append(layer_bias)
+			Inputs=[]
 
 #			my_net = Network([3,1])
 
+#t=np.array([0.5,0.5,0.5,0.5,0.5])
 #a=np.array([1,2,3,4])
 #b=np.arrayy([1,1,1,1],[1,1,1,1],[1,1,1,1])
 #a.dot(np.transpose(b)+baises
