@@ -15,6 +15,7 @@ def forward_pass(X,network):
 	B=network.biases[i]
 	Inputs.append[O]
 	O = forward(O,W,B)
+	O=np.argmax(O,axis=1)+1
 	return O
 
 def calc_cost(O,t):
