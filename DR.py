@@ -1,11 +1,10 @@
 import numpy as np
 
-
 def weighted_sum(X,W,B):
 	Y=X.dot(np.W)+B
 	return Y
 
-def forward_pass(X,network):
+def forward_pass(X,network,Weighted_sums,Inputs):
 	W=network.weights[0]
 	B=network.biases[0]
 	Inputs.append[X]
@@ -13,20 +12,16 @@ def forward_pass(X,network):
 	Weighted_sums.append(Y)
 	O=sigmoid(Y)
 	for i in range (1,len(network.weights)-1): #Do While Types Hmm
-	W=network.weights[i]
-	B=network.biases[i]
-	Inputs.append[O]
-	Y = weighted_sum(O,W,B)
-	Weighted_sums.append(Y)
-	O=sigmoid(Y)
+		W=network.weights[i]
+		B=network.biases[i]
+		Inputs.append[O]
+		Y = weighted_sum(O,W,B)
+		Weighted_sums.append(Y)
+		O=sigmoid(Y)
 	O=np.argmax(O,axis=1)+1
 	return O
 
-def calc_cost(O,t):
-	#AvgError
-
-def backward_pass(network,alpha,Weighted_sums,Inputs):
-	error=calc_error(Weighted_sums,O,t)
+def backward_pass(network,alpha,O,t,Weighted_sums,Inputs):
 	#db=error
 	#dw=[]
 	#Updating Weights and Baises
@@ -35,6 +30,17 @@ def backward_pass(network,alpha,Weighted_sums,Inputs):
 		db=error[i]
 		network.weights[i]+=alpha*dw
 		network.baises[i]+=alpha*db
+
+	return
+
+def train(network,X,t,alpha=0.25,epochs=100)
+	Inputs=[]
+	Weighted_sums=[]
+	for i in range(epochs):
+		#Calculate output while storing the weighted sums and input at each layer.
+		O=forward_pass(X,network,Weighted_sums,Inputs)
+		error=calc_error(Weighted_sums,O,t)
+		backward_pass(network,alpha,O,t,Weighted_sums,Inputs)
 
 def calc_error(O,t,Weighted_sums,do):
 	do = -(t/O + (1-t)/(1-O))
@@ -45,7 +51,6 @@ def calc_error(O,t,Weighted_sums,do):
 
 def sigmoid_gradient(z):
 	np.exp(-z)/(1.0+np.exp(-z)**2)
-
 
 #Activation Function
 def ReLu(z):
@@ -70,8 +75,6 @@ class Network:
 			layer_bias = np.random.random((layers[i])) #28 random values [0.0,1.0)
 			self.weights.append(layer_weight)
 			self.baises.append(layer_bias)
-			Inputs=[]
-			Weighted_sums=[]
 			alpha=0.25
 
 #			my_net = Network([3,1])
