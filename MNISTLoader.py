@@ -71,7 +71,7 @@ def load_data_wrapper():
     code."""
     tr_d, va_d, te_d = load_data()
     training_inputs = tr_d[0].transpose()
-    training_results = np.array([vectorized_result(y) for y in tr_d[1]])
+    training_results = np.array([vectorized_result(y) for y in tr_d[1]]).transpose()
     training_data = (training_inputs, training_results)
     validation_inputs = va_d[0].transpose()
     validation_data = (validation_inputs, va_d[1])
