@@ -46,11 +46,11 @@ def calc_error(O,t,Weighted_sums,do):
 	do = -(t/O + (1-t)/(1-O))
 	error=[]
 	for i in range (len(Weighted_sums)):
-	error[i] = do.dot(sigmoid_gradient(Weighted_sums[i]))
+	error[i] = do.dot(sigmoid_gradient(Weighted_sums[i])) #Returning None
 	return 0
 
 def sigmoid_gradient(z):
-	np.exp(-z)/(1.0+np.exp(-z)**2)
+	return np.exp(-z)/(1.0+np.exp(-z)**2)
 
 #Activation Function
 def ReLu(z):
