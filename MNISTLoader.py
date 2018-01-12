@@ -70,12 +70,12 @@ def load_data_wrapper():
     turn out to be the most convenient for use in our neural network
     code."""
     tr_d, va_d, te_d = load_data()
-    training_inputs = [image.reshape((784,1)) for image in tr_d[0]]
+    training_inputs = tr_d[0].transpose()
     training_results = np.array([vectorized_result(y) for y in tr_d[1]])
     training_data = (training_inputs, training_results)
-    validation_inputs = [image.reshape((784,1)) for image in va_d[0]]
+    validation_inputs = va_d[0].transpose()
     validation_data = (validation_inputs, va_d[1])
-    test_inputs = [image.reshape((784,1)) for image in te_d[0]]
+    test_inputs = te_d[0].transpose()
     test_data = (test_inputs, te_d[1])
     return (training_data, validation_data, test_data)
 
